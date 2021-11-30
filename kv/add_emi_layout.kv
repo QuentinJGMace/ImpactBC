@@ -1,0 +1,92 @@
+#:kivy 1.0.9
+
+#Ecran qui s'affiche pour choisir dans quelle secteur on souhaite ajouter l'émission
+<Choose_emi_sector>:
+    #GridLayout est en général toujours mieu que BoxLayout 
+    #(les trucs ne se rajoutent pas par le bas)
+    GridLayout:
+        cols:1
+
+        #Titre
+        Label :
+            size_hint_y:None
+            height : 75
+            text: "Choisis le secteur d'émission"
+
+        #Zone avec les boutons qui permettent de choisir le secteur
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y: "center"
+
+            GridLayout:
+                size_hint: [None, None]
+                height: 500
+                width : 400
+                id : choix_secteur
+                cols : 2
+                
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    Button:
+                        id: commande_btn
+                        size_hint: [None, None]
+                        height : 35
+                        width: 130
+                        text: "Commande pépin"
+                        on_press : root.manager.current = "commande"
+
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    Button:
+                        id: transport_btn
+                        size_hint: [None, None]
+                        height : 35
+                        width: 130
+                        text: "Transport"
+                        on_press : root.manager.current = "transport"
+
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    Button:
+                        id: gouter_btn
+                        size_hint: [None, None]
+                        height : 35
+                        width: 130
+                        text: "Goûter"
+                        on_press : root.manager.current = "gouter"
+
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    Button:
+                        id: barspe_btn
+                        size_hint: [None, None]
+                        height : 35
+                        width: 130
+                        text: "Barspe"
+                        on_press : root.manager.current = "barspe"
+                
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    Button:
+                        id: com_btn
+                        size_hint: [None, None]
+                        height : 35
+                        width: 130
+                        text:"Communication"
+                        on_press : root.manager.current = "com"
+
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    Button:
+                        id: autre_btn
+                        size_hint: [None, None]
+                        height : 35
+                        width: 130
+                        text:"Autre"
+                        on_press : root.manager.current = "autre"

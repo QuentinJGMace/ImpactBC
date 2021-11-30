@@ -1,0 +1,96 @@
+#:kivy 1.0.9
+
+<Welcome_Screen>:
+    #On défini la couleur du fond
+    canvas.before:
+        Color:
+            rgba: 100/256, 100/256, 100/256, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            
+    Welcome_Layout:
+        id:"w_layout"
+
+<Welcome_Layout>:
+    rows : 4
+
+    #C'est la place pour un logo trop cool fait par Marine
+    AnchorLayout:
+        anchor_x:"center"
+        anchor_y: "center"
+
+        size_hint_y :  None
+        height : 400
+
+        Image :
+            source : "bc_image.png"
+            size: [500, 380]
+
+    #Bloc pour entrer le nom d'utilisateur
+    AnchorLayout:
+        anchor_x:"center"
+        anchor_y:"center"
+
+        GridLayout:
+            size_hint : [None, None]
+            width : 300
+            height : 30
+            cols:2
+            Label:
+                size_hint_x : None
+                width : 90
+                id: "user_lab"
+                text: "Utilisateur"
+
+            TextInput:
+                id: "username"
+                multiline : False
+                size_hint_x : None
+                width : 200
+
+                ########## LIGNE À VIRER ABSOLUMENT ###########
+                text : "Test"
+
+    #Bloc pour rentrer le MDP
+    AnchorLayout:
+        anchor_x:"center"
+        anchor_y:"center"
+
+        GridLayout:
+            size_hint : [None, None]
+            height : 30
+            width : 300
+            cols:2
+            Label:
+                size_hint_x : None
+                width : 90
+                id: "pass_lab"
+                text: "Mot de passe"
+
+            TextInput:
+                size_hint_x : None
+                width : 200
+                id: "password"
+                multiline : False
+                password : True
+
+
+                ########## LIGNE À VIRER ABSOLUMENT ###########
+                text : "Test2"
+
+    #Bouton pour se connecter
+    #Pour l'instant c'est débile il suffit de cliquer dessus pour aller dans l'appli
+    AnchorLayout:
+        anchor_x:"right"
+        anchor_y:"center"
+
+        Register_Button:
+            size_hint: [None, None]
+            width : 100
+            height : 30
+            text:"Valider"
+
+            on_press : self.register()
+            #on_press : root.parent.manager.current = "main_screen"
+

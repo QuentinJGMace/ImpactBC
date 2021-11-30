@@ -1,0 +1,151 @@
+#:kivy 1.0.9
+
+#Correspond à une ligne de la commande
+#C'est un AnchorLayout car ça permet de mettre rajouter les lignes par le haut
+<Ligne_commande>:
+    anchor_x: "center"
+    anchor_y: "top"
+    size_hint_y : None
+    height: 35
+    BoxLayout:
+        orientation:"horizontal"
+        Label:
+            text:"Produit " + str(root.numero)
+            size_hint: [None, None]
+            width:100
+            height:30
+        Menu_deroulant:
+            size_hint_y : None
+            height : 30
+            multiline:False
+
+        Label:
+            text:"Quantité (kg) "
+            size_hint: [None, None]
+            width:100
+            height:30
+        TextInput:
+            size_hint_y : None
+            height : 30
+            multiline:False
+
+<Commande_pepin>:
+    #On affiche 3 blocs séparés : le titre puis les lignes de la commande puis les boutons pour valider et ajouter des lignes
+    GridLayout:
+        id:global_layout
+        cols:1
+
+        #Bloc qui correspond au titre
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            size_hint_y : None
+            height : 100
+
+            Label:
+                id:commande_title
+                text:"Commande Pépin"
+        
+        #Bloc pour entrer la date
+        AnchorLayout:
+            anchor_x:"center"
+            size_hint_y:None
+            height:50
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_x : None
+                width : 400
+                Label:
+                    size_hint : [None, None]
+                    width : 150
+                    height:30
+                    text: "Date (jj/mm/aaaa)"
+
+                CommandeDateTextInput:
+                    id: date_commande
+                    size_hint : [None, None]
+                    width : 150
+                    height:30
+                    multiline: False
+
+        #Bloc pour savoir à quelles fermes ont été pris les produits
+        GridLayout:
+            rows : 1
+            size_hint_y : None
+            height : 35
+            Label:
+                size_hint : [None, None]
+                width : 150
+                height : 30
+                text : "Viltain"
+            CheckBox:
+                id : viltain_checkbox
+            Label:
+                size_hint : [None, None]
+                width : 150
+                height : 30
+                text : "Trubuil"
+            CheckBox:
+                id : trubuil_checkbox
+            Label:
+                size_hint : [None, None]
+                width : 150
+                height : 30
+                text : "Vandame"
+            CheckBox:
+                id: vandame_checkbox
+        
+        #Nombre de frigos allumés en fin de perm
+        GridLayout:
+            rows:1
+            size_hint_y : None
+            height : 35
+            Label:
+                size_hint : [None, None]
+                width : 314
+                height : 30
+                text : "Nombre de frigos allumés en fin de perm"
+            Menu_deroulant:
+                size_hint: [None, None]
+                width : 75
+                height : 30
+                choiceslist : ["0", "1", "2", "3", "4"]
+
+        #Bloc qui correspond aux ligne de la commande
+        Lignes_commande:
+            cols:1
+            id:lignes
+        
+        #Bloc pour les boutons de validation et d'ajout de lignes
+        AnchorLayout:
+            anchor_x:"right"
+            anchor_y:"center"
+            size_hint_y:None
+            height : 30
+
+            BoxLayout:
+                orientation:"horizontal"
+                size_hint_x : None
+                width : 300
+                Btn_nv_ligne:
+                    id:add_ligne
+                    size_hint_x: None
+                    width:50
+                    text:"+"
+                    on_press: self.ajouter_ligne()
+
+                Btn_del_ligne:
+                    id:del_ligne
+                    size_hint_x: None
+                    width:50
+                    text:"-"
+                    on_press: self.enlever_ligne()
+
+                Button:
+                    id: add_command
+                    size_hint_x:None
+                    width : 150
+                    text: "Ajouter commande"
+
+
+                

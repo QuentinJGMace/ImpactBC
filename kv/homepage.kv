@@ -1,0 +1,31 @@
+#:kivy 1.0.6
+
+<HomeScreen>:
+    HomeLayout:
+        id: home_l
+
+<HomeLayout>:
+    orientation : "vertical"
+
+    Image:
+        id: logo
+        source: "bc_image.png"
+        size: [350, 200]
+
+    Label:
+        id: conso_actuelle
+
+        text: "[b] 42T CO2eq[/b] \n émises"
+        text_size : root.width/2, 75
+        size : self.texture_size
+
+    AnchorLayout:
+        anchor_x:"center"
+        anchor_y:"center"
+        Button:
+            id: refresh_btn
+            size_hint: [None, None]
+            height : 35
+            width: 130
+            text: "Actualiser"
+            on_press : root.refresh()

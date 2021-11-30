@@ -1,0 +1,14 @@
+#:kivy 1.0.9
+
+<Mod_emi>:
+
+    #Les GridLayouts sont plus pratiques que les BoxLayout même s'il y a qu'une seule colonne
+    GridLayout:
+        cols:1
+
+        AnchorLayout:
+            anchor_x:"center"
+            size_hint_y : None
+            height : 100
+            Label:
+                text: "Modifier les émissions"

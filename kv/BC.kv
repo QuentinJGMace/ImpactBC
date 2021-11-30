@@ -1,0 +1,79 @@
+#:kivy 1.0.9
+        
+<Main_kv>:
+    rows : 3
+
+    #C'est la barre avec les boutons en haut
+    MenuBar:
+        id: menu
+
+    #Le ScreenManager gère toutes les différentes pages à afficher
+    # (Y'en a bcp)
+    ScreenManager:
+        id: screen_manager
+        HomeScreen:
+            id: home_screen
+            name: "home"
+            manager: screen_manager
+        Choose_emi_sector:
+            id: choose_emi
+            name:"new_emi"
+            manager: screen_manager
+        Commande_pepin:
+            id : commande_pepin
+            name : "commande"
+            manager: screen_manager
+        Transport:
+            id: transport
+            name: "transport"
+            manager : screen_manager
+        Gouter:
+            id: gouter
+            name: "gouter"
+            manager: screen_manager
+        Barspe:
+            id: barspe
+            name: "barspe"
+            manager: screen_manager
+        Com:
+            id: com
+            name : "com"
+            manager : screen_manager
+        Autre:
+            id: autre
+            name: "autre"
+            manager: screen_manager
+        Mod_emi:
+            id: mod_emissions
+            name: "mod_emi"
+            manager: screen_manager
+        Bilan:
+            id: voir_bilan
+            name: "bilan"
+            manager:screen_manager
+        Help:
+            id: aide
+            name : "help"
+            manager: screen_manager
+        Sources:
+            id: sources
+            name : "sources"
+            manager : screen_manager
+
+    #C'est la barre pour se déconnecter
+    QuitBar:
+        id : quit
+
+#Sers à contenir le Main_kv
+<Main_Screen>:
+    #Donne la couleur du fond
+    canvas.before:
+        Color:
+            rgba: 100/256, 100/256, 100/256, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Main_kv:
+        #j'ai pas d'idées pour le nom
+        id:jsp_layout

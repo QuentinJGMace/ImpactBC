@@ -1,0 +1,50 @@
+#:kivy 1.0.9
+
+<MenuBar>:
+    size_hint_y : None
+    height : 40
+    cols:6
+    Menu_bar_btn:
+        id : home_btn
+        text:"Accueil"
+        #on_press : root.parent.ids.screen_manager.current = "home"
+        on_press : self.change_screen("home")
+    Menu_bar_btn:
+        id: add_emi_btn
+        text: "Ajouter une \n émission"
+        #on_press : root.parent.ids.screen_manager.current = "new_emi"
+        on_press : self.change_screen("new_emi")
+    Menu_bar_btn:
+        id: see_emi_btn
+        text: "Voir/Modifier\n les émissions"
+        #on_press : root.parent.ids.screen_manager.current = "mod_emi"
+        on_press : self.change_screen("mod_emi")
+    Menu_bar_btn:
+        id: bilan_btn
+        text:"Bilan GES"
+        #on_press: root.parent.ids.screen_manager.current = "bilan"
+        on_press : self.change_screen("bilan")
+    Menu_bar_btn:
+        id: help_btn
+        text:"Help"
+        #on_press : root.parent.ids.screen_manager.current = "help"
+        on_press : self.change_screen("help")
+    Menu_bar_btn:
+        id : sources_btn
+        text:"Sources \n Documentation"
+        #on_press: root.parent.ids.screen_manager.current = "sources"
+        on_press : self.change_screen("sources")
+
+<QuitBar>:
+    size_hint_y : None
+    height : 50
+    AnchorLayout:
+        anchor_x:"right"
+        anchor_y:"center"
+
+        Button:
+            size_hint : [None, None]
+            width : 110
+            height : 30
+            text: "Déconnexion"
+            on_press: root.parent.parent.manager.current = "welcome"

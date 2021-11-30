@@ -1,0 +1,72 @@
+#:kivy 1.0.9
+
+<Transport>:
+    GridLayout:
+        rows : 3
+
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+
+            size_hint_y: None
+            height: 100
+
+            Label:
+                id: transport_titre
+                text : "Transport"
+        
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            GridLayout:
+                cols: 2
+                size_hint_x:None
+                width : 500
+                Label:
+                    id:date_lbl
+                    size_hint_x : None
+                    size_hint_y: None
+                    height:30
+                    width: 75
+                    text:"Date"
+                TextInput:
+                    id: date_input
+                    size_hint_y: None
+                    height:30
+
+                Label:
+                    id:distance_lbl
+                    size_hint_x: None
+                    size_hint_y: None
+                    height:30
+                    width : 150
+                    text : "Distance parcourue"
+                TextInput:
+                    id: dist_input
+                    size_hint_y: None
+                    height:30
+
+                Label:
+                    id:type_transport
+                    size_hint_x:None
+                    size_hint_y: None
+                    height:30
+                    width:150
+                    text: "Type de transport"
+                TextInput:
+                    id: type_transport_input
+                    size_hint_y: None
+                    height:30
+
+        AnchorLayout:
+            anchor_x:"right"
+            anchor_y:"center"
+            size_hint_y : None
+            height : 50
+
+            Button:
+                id: add_transport_emi
+                size_hint: [None, None]
+                width : 150
+                height : 30
+                text:"Ajouter l'émission"
